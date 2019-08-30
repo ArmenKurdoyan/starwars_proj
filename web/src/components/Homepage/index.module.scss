@@ -1,0 +1,74 @@
+@import '../../styles/colors';
+
+#homepage {
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 20px 200px;
+  height: 80%;
+  overflow-y: auto;
+  transition: 0.5s background-color;
+
+  .pre_text {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .page_block {
+    display: flex;
+    justify-content: space-between;
+
+    .current_page {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .page_controllers {
+      button {
+        transition: 0.5s background-color;
+        color: $white;
+      }
+    }
+  }
+}
+
+.light {
+  background: $white !important;
+
+  .pre_text {
+    color: $black;
+  }
+
+  .page_block {
+    .page_controllers {
+      button {
+        background: $black;
+        color: $white;
+      }
+    }
+  }
+}
+
+.dark {
+  background: $black !important;
+
+  .pre_text {
+    color: $sith-red;
+  }
+
+  .page_block {
+    .current_page {
+      color: $white;
+    }
+
+    .page_controllers {
+      button {
+        background: $sith-red;
+      }
+    }
+  }
+}
