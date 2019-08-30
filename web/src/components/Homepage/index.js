@@ -44,7 +44,7 @@ const Homepage = () => {
       {!!size(categoryList) && categoryList.count > 10 ?
         <div className={styles.page_block}>
           <div className={styles.current_page}>
-            Current page {page}
+            {category.toUpperCase()} | Page {page} | Total {Math.floor(categoryList.count / 10)}
           </div>
           <div className={styles.page_controllers}>
             <Button onClick={previousPage} disabled={page === 1} content='Previous page'/>
