@@ -4,6 +4,7 @@ import ItemsList from '../../context/ItemsList';
 import SelectedCategory from '../../context/SelectedCategory';
 import Header from '../../components/Header';
 import Homepage from '../../components/Homepage';
+import Footer from '../../components/Footer';
 
 import styles from './index.module.scss';
 
@@ -30,6 +31,7 @@ function App() {
             <Homepage />
           </SelectedCategory.Provider>
         </ItemsList.Provider>
+        <Footer />
       </SelectedTheme.Provider>
     </div>
   );

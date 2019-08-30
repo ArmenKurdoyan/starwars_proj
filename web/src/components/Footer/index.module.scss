@@ -1,0 +1,31 @@
+@import '../../styles/colors';
+
+#footer {
+ border-radius: 0;
+ display: flex;
+ transition: 0.5s background-color;
+
+  .link_block {
+    .title {
+      margin-right: 10px;
+      font-weight: bold;
+    }
+  }
+
+  .starwars_quote {
+    width: 80%;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+.light {
+  color: $black;
+  background: $white;
+}
+
+.dark {
+  color: $sith-red;
+  background: $black !important;
+}
