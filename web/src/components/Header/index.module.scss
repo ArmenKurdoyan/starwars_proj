@@ -1,0 +1,81 @@
+@import '../../styles/colors';
+
+#header {
+  border-radius: 0;
+  display: flex;
+  justify-content: space-between;
+  transition: 0.5s background-color;
+  height: 75px;
+
+  .logo {
+    height: 50px;
+    width: 100px;
+  }
+
+  .search_block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+
+    .categories {
+      height: 100%;
+      margin-top: 7px;
+      padding: 10px;
+      width: 50px;
+      font-size: 22px;
+    }
+
+    .search_bar {
+      width: 90%;
+
+      input {
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+
+    .searchbar_icon {
+      font-size: 20px;
+      margin-left: 15px;
+      cursor: pointer;
+    }
+  }
+
+  .theme_options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100px;
+    font-weight: bold;
+    font-size: 16px;
+
+    & > div {
+      cursor: pointer;
+    }
+  }
+}
+
+.light_side {
+  color: $black;
+  background: $white !important;
+
+  .logo {
+    box-shadow: 0 0 10px 5px;
+    border-radius: 10px;
+    background: $black;
+  }
+}
+
+.dark_side {
+  color: $sith-red;
+  background: $black !important;
+
+  .search_block {
+    .search_bar {
+      i {
+        color: $sith-red;
+      }
+    }
+  }
+}
