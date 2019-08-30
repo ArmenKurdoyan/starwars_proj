@@ -1,0 +1,44 @@
+@import '../../styles/colors';
+
+#item_box {
+  margin-top: 30px;
+  overflow-x: auto;
+  widows: 60%;
+
+  .button_block {
+    display: flex;
+
+    .item_button {
+      margin-right: 30px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .info_row {
+    width: 100%;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+}
+
+.light {
+  color: $black;
+
+  .button_block {
+    .item_button {
+      color: $white !important;
+      background: $black !important;
+    }
+  }
+}
+
+.dark {
+  color: $white;
+
+  .button_block {
+    .item_button {
+      color: $white !important;
+      background: $sith-red !important;
+    }
+  }
+}
