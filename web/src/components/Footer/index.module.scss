@@ -1,9 +1,10 @@
 @import '../../styles/colors';
 
 #footer {
- border-radius: 0;
- display: flex;
- transition: 0.5s background-color;
+  margin: 0;
+  border-radius: 0;
+  display: flex;
+  transition: 0.5s background-color;
 
   .link_block {
     .title {
@@ -28,4 +29,5 @@
 .dark {
   color: $sith-red;
   background: $black !important;
+  border-top: 1px solid $sith-red !important;
 }

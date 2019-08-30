@@ -50,7 +50,7 @@ const Homepage = () => {
             <Button onClick={previousPage} disabled={page === 1} content='Previous page'/>
             <Button onClick={nextPage} disabled={Math.floor(categoryList.count / 10) === page} content='Next page'/>
           </div>
-        </div> : <div className={styles.pre_text}>Please s  earch for discussions or select a category</div>
+        </div> : <div className={styles.pre_text}>Please search for discussions or select a category</div>
       }
 
       {!!size(categoryList) ? categoryList.results.map((value, index) => <Item key={index} item={value} />) :  null}
