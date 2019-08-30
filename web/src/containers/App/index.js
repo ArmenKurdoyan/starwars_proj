@@ -8,8 +8,16 @@ import Footer from '../../components/Footer';
 
 import styles from './index.module.scss';
 
+const setDefaultTheme = () => {
+  const theme = localStorage.getItem('theme');
+  if (!theme) {
+    localStorage.setItem('theme', 'light');
+  }
+  return theme || localStorage.getItem('theme');
+}
+
 function App() {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(setDefaultTheme());
   const [list, setList] = useState(null);
   const [category, setCategory] = useState('');
 
