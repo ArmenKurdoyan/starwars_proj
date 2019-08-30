@@ -91,8 +91,8 @@ const Header = () => {
       </div>
 
       <div className={styles.theme_options}>
-        <div onClick={handleLightTheme}>Light</div>
-        <div onClick={handleDarkTheme}>Dark</div>
+        <div className={styles.light_button} onClick={handleLightTheme}>Light</div>
+        <div className={styles.dark_button} onClick={handleDarkTheme}>Dark</div>
       </div>
     </Segment>
   )

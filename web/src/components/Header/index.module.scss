@@ -47,12 +47,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100px;
+    width: 150px;
     font-weight: bold;
     font-size: 16px;
 
-    & > div {
+    .light_button, .dark_button {
       cursor: pointer;
+      width: 70px;
+      height: 30px;
+      text-align: center;
+      padding-top: 5px;
+      border-radius: 4px;
+      transition: 0.5s color, 0.5s background-color;
     }
   }
 }
@@ -66,6 +72,13 @@
     border-radius: 10px;
     background: $black;
   }
+
+  .theme_options {
+    .dark_button:hover {
+      background: $black;
+      color: $sith-red;
+    }
+  }
 }
 
 .dark_side {
@@ -78,6 +91,13 @@
       i {
         color: $sith-red;
       }
+    }
+  }
+
+  .theme_options {
+    .light_button:hover {
+      background: $white;
+      color: $black;
     }
   }
 }
