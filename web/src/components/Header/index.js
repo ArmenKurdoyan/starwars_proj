@@ -29,6 +29,10 @@ const Header = () => {
       fetchData();
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem('theme', theme)
+  }, [theme]);
+
   const handleSearch = async () => {
     if (!value) {
       return null;
