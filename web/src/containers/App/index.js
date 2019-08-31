@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SelectedTheme from '../../context/SelectedTheme';
 import ItemsList from '../../context/ItemsList';
+import DiscussionSideBar from '../../context/DiscussionSideBar';
 import SelectedCategory from '../../context/SelectedCategory';
 import Header from '../../components/Header';
 import Homepage from '../../components/Homepage';
@@ -19,6 +20,7 @@ const setDefaultTheme = () => {
 function App() {
   const [theme, setTheme] = useState(setDefaultTheme());
   const [list, setList] = useState(null);
+  const [show, setShow] = useState(false);
   const [category, setCategory] = useState('');
 
   return (
@@ -35,8 +37,13 @@ function App() {
             category,
             setCategory
           ]}>
-            <Header />
-            <Homepage />
+            <DiscussionSideBar.Provider value={[
+              show,
+              setShow
+            ]}>
+              <Header />
+              <Homepage />
+            </DiscussionSideBar.Provider>
           </SelectedCategory.Provider>
         </ItemsList.Provider>
         <Footer />

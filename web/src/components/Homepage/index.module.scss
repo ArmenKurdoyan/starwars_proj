@@ -9,6 +9,10 @@
   overflow-y: auto;
   transition: 0.5s background-color;
 
+  .sidebar {
+    padding: 20px 50px;
+  }
+
   .pre_text {
     font-size: 24px;
     font-weight: bold;

@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import classnames from 'classnames';
 import { TITLES } from '../../constants';
 import { keys } from 'lodash';
+import DiscussionSideBar from '../../context/DiscussionSideBar';
 import SelectedTheme from '../../context/SelectedTheme';
 import { Button } from 'semantic-ui-react';
 
@@ -9,14 +10,11 @@ import styles from './index.module.scss';
 
 const Item = ({item}) => {
   const [theme] = useContext(SelectedTheme);
-  const [show, setShow] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [show, setShow] = useContext(DiscussionSideBar);
 
-  const handleOpenClose = () => setShow(!show);
-
-  const currentItem = () => {
-    // open discussion block
-    console.log(item.url);
-  }
+  const handleOpenClose = () => setOpen(!open);
+  const currentItem = () => setShow(!show);
 
   const itemInfo = keys(item);
 
@@ -29,7 +27,7 @@ const Item = ({item}) => {
         <Button onClick={currentItem} className={styles.item_button}>Open discussion</Button>
         <Button onClick={handleOpenClose} className={styles.item_button}>{item.name || item.title}</Button>
       </div>
-      {show &&
+      {open &&
         itemInfo.map((value, index) => {
           if (!TITLES[value] || value === 'url' || value === 'title' || value === 'name') {
             return null;
