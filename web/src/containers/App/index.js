@@ -3,6 +3,7 @@ import SelectedTheme from '../../context/SelectedTheme';
 import ItemsList from '../../context/ItemsList';
 import DiscussionSideBar from '../../context/DiscussionSideBar';
 import SelectedCategory from '../../context/SelectedCategory';
+import DiscussionValue from '../../context/DiscussionValue';
 import Header from '../../components/Header';
 import Homepage from '../../components/Homepage';
 import Footer from '../../components/Footer';
@@ -22,6 +23,7 @@ function App() {
   const [list, setList] = useState(null);
   const [show, setShow] = useState(false);
   const [category, setCategory] = useState('');
+  const [discussion, setDiscussion] = useState({});
 
   return (
     <div id={styles.app}>
@@ -41,8 +43,13 @@ function App() {
               show,
               setShow
             ]}>
-              <Header />
-              <Homepage />
+              <DiscussionValue.Provider value={[
+                discussion,
+                setDiscussion
+              ]}>
+                <Header />
+                <Homepage />
+              </DiscussionValue.Provider>
             </DiscussionSideBar.Provider>
           </SelectedCategory.Provider>
         </ItemsList.Provider>

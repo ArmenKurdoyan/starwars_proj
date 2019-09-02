@@ -17,7 +17,7 @@ const Homepage = () => {
   const [theme] = useContext(SelectedTheme);
   const [category] = useContext(SelectedCategory);
   const [list] = useContext(ItemsList);
-  const [show ,setShow] = useContext(DiscussionSideBar);
+  const [show, setShow] = useContext(DiscussionSideBar);
   const [page, setPage] = useState(1);
   const [categoryList, setCategoryList] = useState({});
   //list of discussions ex. people => list of discussions,
@@ -37,7 +37,6 @@ const Homepage = () => {
 
   const nextPage = () => setPage(page + 1);
   const previousPage = () => setPage(page - 1);
-  const handleSidebarHide = () => setShow(!show);
 
   return (
     <Segment id={styles.homepage} className={classnames({
@@ -51,7 +50,6 @@ const Homepage = () => {
           icon='labeled'
           inverted
           direction='right'
-          onHide={handleSidebarHide}
           vertical
           visible={show}
           className={styles.sidebar}

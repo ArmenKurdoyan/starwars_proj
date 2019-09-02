@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import DiscussionValue from '../../context/DiscussionValue';
 import { Segment, Comment, Input, Header, Button } from 'semantic-ui-react';
 
 import styles from './index.module.scss';
 
 const SideDiscussionBar = () => {
   const [value, setValue] = useState('');
+  const [discussion] = useContext(DiscussionValue);
 
   useEffect(() => {
     // axios get every second for new messages
@@ -20,7 +22,7 @@ const SideDiscussionBar = () => {
     <Segment id={styles.discussion_bar}>
       <Comment.Group id={styles.comments_block}>
         <Header as='h3' dividing className={styles.comments_header}>
-          Discussion
+          {discussion.item}
         </Header>
 
         <div className={styles.comments_section}>
