@@ -1,0 +1,60 @@
+@import '../../styles/colors';
+
+#discussion_bar {
+  background: $white !important;
+  color: $black;
+  width: 450px;
+  height: 100%;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  transition: 0.5s background-color;
+
+  #comments_block {
+    height: 85%;
+    overflow-y: auto;
+
+    .comments_header {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+
+    .comments_section {
+      height: calc(100% - 75px);
+      overflow-y: auto;
+
+      .comment {
+        padding-left: 10px;
+        padding-right: 10px;
+        text-align: left;
+      }
+    }
+  }
+
+  .input_section {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+    .input, .button {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .input {
+      width: 70%;
+
+      input {
+        color: $white !important;
+        background: $black !important;
+      }
+    }
+
+    .button {
+      width: 20%;
+      color: $white !important;
+      background: $black !important;
+    }
+  }
+}
