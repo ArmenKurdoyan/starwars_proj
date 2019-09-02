@@ -69,7 +69,9 @@ const Header = () => {
       [styles.light_side]: theme === 'light',
       [styles.dark_side]: theme === 'dark',
     })}>
-      <Logo className={styles.logo} />
+      <a href="http://starwars.com">
+        <Logo className={styles.logo} />
+      </a>
 
       <div className={styles.search_block}>
         <Dropdown
