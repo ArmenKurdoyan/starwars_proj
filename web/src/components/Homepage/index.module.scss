@@ -13,6 +13,16 @@
     padding: 20px 50px;
   }
 
+  .loading_container {
+    position: relative;
+    min-height: 100%;
+
+    .dimmer {
+      z-index: 1;
+      display: block;
+    }
+  }
+
   .pre_text {
     font-size: 24px;
     font-weight: bold;

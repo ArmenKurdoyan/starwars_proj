@@ -26,38 +26,35 @@ const Homepage = () => {
   //comes from backend
 
   useEffect(() => {
-    setCategoryList({});
     const fetchData = async () => {
+      setLoading(true);
       const result = await axios(`${API_PATH}/${category}/?page=${page}`);
 
       setCategoryList(result.data)
+      setLoading(false);
     }
       fetchData();
+
   }, [category, page]);
 
-  useEffect(() => setPage(1), [category]);
-
   useEffect(() => {
-    if (!size(categoryList) && category) {
-      return setLoading(true);
-    }
+    setLoading(true);
 
-    setLoading(false);
+    setPage(1)
+  }, [category]);
 
-  }, [categoryList, category, page])
+  useEffect(() => setLoading(false), [categoryList])
 
   const nextPage = () => setPage(page + 1);
   const previousPage = () => setPage(page - 1);
+
+  const showLoading = categoryList.count || !loading ? Math.floor(categoryList.count / 10) || 1 : '...';
 
   return (
     <Segment id={styles.homepage} className={classnames({
       [styles.light]: theme === 'light',
       [styles.dark]: theme === 'dark',
     })}>
-
-        <Dimmer active={loading}>
-          <Loader />
-        </Dimmer>
 
         <Sidebar
           as={Menu}
@@ -72,23 +69,33 @@ const Homepage = () => {
           <SideDiscussionBar />
         </Sidebar>
 
-        {!!size(categoryList) && categoryList.count > 10 ?
+        {category ?
           <div className={styles.page_block}>
             <div className={styles.current_page}>
-              {category.toUpperCase()} | Page {page} | Total {Math.floor(categoryList.count / 10)}
+              {category.toUpperCase()} | Page {page} | Total {showLoading}
             </div>
             <div className={styles.page_controllers}>
-              <Button onClick={previousPage} disabled={page === 1} content='Previous page'/>
-              <Button onClick={nextPage} disabled={Math.floor(categoryList.count / 10) === page} content='Next page'/>
+            {!loading && categoryList.count > 10 &&
+              <>
+                <Button onClick={previousPage} disabled={page === 1} content='Previous page'/>
+                <Button onClick={nextPage} disabled={Math.floor(categoryList.count / 10) === page} content='Next page'/>
+              </>
+            }
             </div>
           </div> : null
         }
 
-        {!size(categoryList) &&
+        {!size(categoryList) && !category &&
           <div className={styles.pre_text}>Please search for discussions or select a category</div>
         }
 
-        {!!size(categoryList) ? categoryList.results.map((value, index) => <Item key={index} item={value} />) :  null}
+        <div className={styles.loading_container}>
+          <Dimmer active={loading} className={styles.dimmer}>
+            <Loader />
+          </Dimmer>
+          {!!size(categoryList) ? categoryList.results.map((value, index) => <Item key={index} item={value} />) :  null}
+        </div>
+
 
     </Segment>
   )
