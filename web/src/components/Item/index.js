@@ -38,17 +38,19 @@ const Item = ({item}) => {
         <Button onClick={currentItem} className={styles.item_button}>{discussionStatus} discussion</Button>
         <Button onClick={handleOpenClose} className={styles.item_button}>{item.name || item.title}</Button>
       </div>
-      {open &&
-        itemInfo.map((value, index) => {
-          if (!TITLES[value] || value === 'url' || value === 'title' || value === 'name') {
-            return null;
-          }
+      <div className={styles.items}>
+        {open &&
+          itemInfo.map((value, index) => {
+            if (!TITLES[value] || value === 'url' || value === 'title' || value === 'name') {
+              return null;
+            }
 
-          return (
-          <div key={index} className={styles.info_row}>{TITLES[value]} : {item[value]}</div>
-          )
-        })
-      }
+            return (
+            <div key={index} className={styles.info_row}>{TITLES[value]} : {item[value]}</div>
+            )
+          })
+        }
+      </div>
     </div>
   )
 }

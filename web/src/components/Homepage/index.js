@@ -90,13 +90,13 @@ const Homepage = () => {
         }
 
         <div className={styles.loading_container}>
-          <Dimmer active={loading} className={styles.dimmer}>
+        {loading &&
+          <Dimmer active className={styles.dimmer}>
             <Loader />
           </Dimmer>
-          {!!size(categoryList) ? categoryList.results.map((value, index) => <Item key={index} item={value} />) :  null}
+        }
+        {!!size(categoryList) ? categoryList.results.map((value, index) => <Item key={index} item={value} />) :  null}
         </div>
-
-
     </Segment>
   )
 }

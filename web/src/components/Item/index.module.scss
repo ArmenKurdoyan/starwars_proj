@@ -2,7 +2,6 @@
 
 #item_box {
   margin-top: 30px;
-  overflow-x: auto;
   width: 60%;
 
   .button_block {
@@ -14,11 +13,16 @@
     }
   }
 
-  .info_row {
-    width: 100%;
-    font-weight: bold;
-    margin: 10px 0;
+  .items {
+    overflow-x: auto;
+
+    .info_row {
+      width: 100%;
+      font-weight: bold;
+      margin: 10px 0;
+    }
   }
+
 }
 
 .light {
