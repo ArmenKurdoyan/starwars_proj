@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import classnames from 'classnames';
 import { TITLES } from '../../constants';
 import { keys } from 'lodash';
@@ -9,11 +9,13 @@ import { Button } from 'semantic-ui-react';
 
 import styles from './index.module.scss';
 
-const Item = ({item}) => {
+const Item = ({item, page}) => {
   const [theme] = useContext(SelectedTheme);
   const [open, setOpen] = useState(false);
   const [show, setShow] = useContext(DiscussionSideBar);
   const [discussion, setDiscussion] = useContext(DiscussionValue);
+
+  useEffect(() => setOpen(false), [page]);
 
   const handleOpenClose = () => setOpen(!open);
   const currentItem = () => {
