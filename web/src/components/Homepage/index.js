@@ -72,7 +72,9 @@ const Homepage = () => {
         {category ?
           <div className={styles.page_block}>
             <div className={styles.current_page}>
-              {category.toUpperCase()} | Page {page} | Total {showLoading}
+              <div>{category.toUpperCase()}</div>
+              <div>| PAGE {page}</div>
+              <div>| TOTAL {showLoading}</div>
             </div>
             <div className={styles.page_controllers}>
             {!loading && categoryList.count > 10 &&
