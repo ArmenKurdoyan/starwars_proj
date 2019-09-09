@@ -19,6 +19,7 @@
 
     .dimmer {
       z-index: 1;
+      opacity: 0.5;
       display: block;
     }
   }
@@ -52,6 +53,21 @@
 
 .light {
   background: $white !important;
+
+  .loading_container {
+    .dimmer {
+      border-color: $black transparent transparent;
+      background: $white;
+    }
+
+    & > div {
+      & > div {
+        ::after {
+          border-color: $black transparent transparent !important;
+        }
+      }
+    }
+  }
 
   .pre_text {
     color: $black;
