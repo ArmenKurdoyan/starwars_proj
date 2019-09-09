@@ -95,7 +95,7 @@ const Homepage = () => {
             <Loader />
           </Dimmer>
         }
-        {!!size(categoryList) ? categoryList.results.map((value, index) => <Item key={index} item={value} />) :  null}
+        {!!size(categoryList) ? categoryList.results.map((value, index) => <Item key={index} page={page} item={value} />) :  null}
         </div>
     </Segment>
   )
