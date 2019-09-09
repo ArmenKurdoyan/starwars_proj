@@ -101,3 +101,13 @@
     }
   }
 }
+
+@media screen and (max-width: 610px) {
+  #header {
+    .theme_options {
+      width: 50px;
+      margin-left: 15%;
+      flex-direction: column;
+    }
+  }
+}
